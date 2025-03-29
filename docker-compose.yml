@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  coingecko-mcp:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=production
+      - PORT=8080
+      # CoinGecko Pro API key
+      - COINGECKO_API_KEY=CG-gTgiBRydF4PqMfgYZ4Wr6fxB
+      # Optional: Set an API key for authentication
+      - MCP_API_KEY=${MCP_API_KEY:-api-key-for-access}
+    restart: unless-stopped 
